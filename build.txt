@@ -1,0 +1,3 @@
+displayName = Make Summoner Better
+author = MSB Community
+version = 0.1
