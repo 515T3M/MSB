@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "SPtzBTIhMm5SC6A/JSZ5pwxOcLZSQv9FPPMRfdzxZ/nvVEXf9oliY/zdlyRj02J6X2MhYhl2gHlSTkoreY9CSQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\mrcra\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\MSB\\MSB.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mrcra\\.nuget\\packages\\tmodloader.codeassist\\0.1.1\\tmodloader.codeassist.0.1.1.nupkg.sha512"
+  ],
+  "logs": []
+}

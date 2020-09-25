@@ -1,1 +1,20 @@
-Make Summoner Better is a pretty cool mod, it does...this. Modify this file with a description of your mod.
+Have you ever felt overshadowed the other classes? 
+Have you ever felt tired of grinding for hour to get that not that bad summoning item? 
+Well, fear no more my fellow summoner. 
+Let's unite together to make our lifes easier. 
+Make Summoner Better, a mod by the community, for the community. 
+Consider joining the cause by downloading the mod and joining the mod's discord.
+
+Currently the mod adds:
+
+1 whip
+1 minion
+1 laser pointer (new high-range weapon type)
+2 vanilla changes
+
+Huge Thanks to:
+	goiabae (coding, spriting)
+	ssobedevad 40 (whip code)
+	Zandberg (ideas)
+
+My lads summoners. Let's unite together to make our lifes easier. Make Summoner Better, a mod by the community, for the community. Consider joining the cause on the mod's discord.
