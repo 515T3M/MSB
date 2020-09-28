@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace MSB.Projectiles.Whips
 {
-    class CrystalineTongueProjectile : WhipClass
-
+    class HemolickProjectile : WhipClass
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             summonTagDamage = 7;
             rangeMult = 1f;

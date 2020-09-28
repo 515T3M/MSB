@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace MSB.Projectiles.Whips
 {
-    class CrystalineTongueProjectile : WhipClass
-
+    class SoulSwallowProjectile : WhipClass
     {
         public override void SetDefaults()
         {

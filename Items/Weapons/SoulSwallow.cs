@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-
+using Terraria.ModLoader;
 
 namespace MSB.Items.Weapons
 {
-    public class CrystalineTongue : ModItem
+    class SoulSwallow : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -27,7 +25,7 @@ namespace MSB.Items.Weapons
             item.width = 17;
             item.height = 14;
             item.value = 1000;
-            item.shoot = mod.ProjectileType("CrystalineTongueProjectile");
+            item.shoot = mod.ProjectileType("SoulSwallowProjectile");
             item.UseSound = SoundID.Item1;
             item.noMelee = true;
             item.summon = true;
@@ -43,8 +41,5 @@ namespace MSB.Items.Weapons
         {
             item.autoReuse = player.GetModPlayer<MSBPlayer>().WhipAutoswing;
         }
-
-
-
     }
 }

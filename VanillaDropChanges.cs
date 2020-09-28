@@ -19,6 +19,16 @@ namespace MSB
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("CrystalineTongue"));
                 }
+
+                if (npc.type == 474)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Hemolick"));
+                }
+
+                if (npc.type == 473)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SoulSwallow"));
+                }
             }
         }
     }
