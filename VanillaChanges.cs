@@ -29,6 +29,15 @@ namespace MSB
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SoulSwallow"));
                 }
+
+            }
+
+            if (Main.rand.Next(50) == 0)
+            {
+                if (npc.type == 224)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FlyingFish"));
+                }
             }
         }
     }

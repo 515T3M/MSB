@@ -27,6 +27,14 @@ namespace MSB
             if ((proj.minion || ProjectileID.Sets.MinionShot[proj.type]) && target.whoAmI == player.MinionAttackTargetNPC) { damage += summonTagDamage; if (summonTagCrit > 0) { if (Main.rand.Next(1, 101) < summonTagCrit) { crit = true; } } }
 
         }
-    }
 
+        public override void CatchFish(Item fishingRod, Item bait, int power, int liquidType, int poolSize, int worldLayer, int questFish, ref int caughtType, ref bool junk)
+        {
+            if (player.ZoneRain && liquidType == 0 && Main.rand.Next(15) == 0)
+            {
+                caughtType = mod.ItemType("FlyingFish");
+            }
+        }
+
+    }
 }
