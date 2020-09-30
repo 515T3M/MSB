@@ -7,14 +7,13 @@ Consider joining the cause by downloading the mod and joining the mod's discord.
 
 Currently the mod adds:
 
-1 whip
+3 whips
 1 minion
 1 laser pointer (new high-range weapon type)
 2 vanilla changes
 
 Huge Thanks to:
-	goiabae (coding, spriting)
-	ssobedevad 40 (whip code)
-	Zandberg (ideas)
-
-My lads summoners. Let's unite together to make our lifes easier. Make Summoner Better, a mod by the community, for the community. Consider joining the cause on the mod's discord.
+	goiabae
+	ssobedevad40
+	Zandberg
+	Bruhken
