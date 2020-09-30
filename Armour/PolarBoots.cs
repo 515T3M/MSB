@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 namespace MSB.Armour
 {
   [AutoloadEquip(EquipType.Legs)]
-  public class PolarGreaves : ModItem
+  public class PolarBoots : ModItem
   {
     public override void SetStaticDefaults()
     {
@@ -34,7 +34,7 @@ namespace MSB.Armour
 		recipe.AddIngredient(ItemID.SnowBlock, 18);
 		recipe.AddIngredient(ItemID.IceBlock, 25);
             recipe.AddRecipeGroup("IronBar", 6);
-            recipe.AddIngredient(mod.ItemType("FrozenShard"), 2);
+            recipe.AddIngredient(mod.ItemType("FrozenLeather"), 2);
             recipe.AddTile(TileID.IceMachine);
 		recipe.SetResult(this);
 		recipe.AddRecipe();

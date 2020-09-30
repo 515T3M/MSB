@@ -34,7 +34,7 @@ namespace MSB.Armour
 		recipe.AddIngredient(ItemID.SnowBlock, 20);
 		recipe.AddIngredient(ItemID.IceBlock, 30);
             recipe.AddRecipeGroup("IronBar", 10);
-		recipe.AddIngredient(mod.ItemType("FrozenShard"), 3);
+		recipe.AddIngredient(mod.ItemType("FrozenLeather"), 3);
 		recipe.AddTile(TileID.IceMachine);
 		recipe.SetResult(this);
 		recipe.AddRecipe();

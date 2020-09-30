@@ -45,21 +45,21 @@ namespace MSB
             {
                 if (npc.type == NPCID.IceBat)
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrozenShard"));
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrozenLeather"));
                 }
                 if (npc.type == NPCID.SnowFlinx)
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrozenShard"));
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrozenLeather"));
                 }
                 if (npc.type == NPCID.SpikedIceSlime)
                 {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrozenShard"));
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrozenLeather"));
                 }
             }
 
             if (npc.type == NPCID.UndeadViking)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrozenShard"), Main.rand.Next(1, 4));
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrozenLeather"), Main.rand.Next(1, 4));
             }
         }
     }

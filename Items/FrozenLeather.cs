@@ -4,12 +4,11 @@ using Terraria.ModLoader;
 
 namespace MSB.Items
 {
-    public class FrozenShard : ModItem
+    public class FrozenLeather : ModItem
     {
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Frozen Leather");
-            Tooltip.SetDefault("Could probably do with a better name");
         }
 
         public override void SetDefaults()

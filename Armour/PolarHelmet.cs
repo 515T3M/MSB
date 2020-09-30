@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 namespace MSB.Armour
 {
   [AutoloadEquip(EquipType.Head)]
-  public class PolarHelmet : ModItem
+  public class PolarHood : ModItem
   {
     public override void SetStaticDefaults()
     {
@@ -31,7 +31,7 @@ namespace MSB.Armour
         public override bool IsArmorSet(Item head, Item body, Item legs) //Check if the player is wearing the full armour set
     {
       if (body.type == ModContent.ItemType<PolarBreastplate>())
-        return legs.type == ModContent.ItemType<PolarGreaves>();
+        return legs.type == ModContent.ItemType<PolarBoots>();
       return false;
     }
 	
@@ -56,7 +56,7 @@ namespace MSB.Armour
 		recipe.AddIngredient(ItemID.SnowBlock, 10);
 		recipe.AddIngredient(ItemID.IceBlock, 15);
             recipe.AddRecipeGroup("IronBar", 4);
-		recipe.AddIngredient(mod.ItemType("FrozenShard"));
+		recipe.AddIngredient(mod.ItemType("FrozenLeather"));
 		recipe.AddTile(TileID.IceMachine);
 		recipe.SetResult(this);
 		recipe.AddRecipe();
