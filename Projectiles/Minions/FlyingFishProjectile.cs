@@ -52,7 +52,7 @@ namespace MSB.Projectiles.Minions
             }
             if (player.HasBuff(BuffType<FlyingFishBuff>()))
             {
-                projectile.timeLeft = 2;
+                projectile.timeLeft = 18000;
             }
 
 			//General behavior
