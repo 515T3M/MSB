@@ -1,3 +1,6 @@
 displayName = Make Summoner Better
 author = MSB Community
-version = 0.1
+version = 0.2
+homepage = https://discord.gg/ascZuUU
+includeSource = true
+includePDB = true

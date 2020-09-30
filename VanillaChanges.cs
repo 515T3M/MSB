@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace MSB
@@ -38,6 +39,27 @@ namespace MSB
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FlyingFish"));
                 }
+            }
+
+            if (Main.rand.Next(50) == 0) //Pre-hm underground ice enemies have a chance of dropping Frozen Shards
+            {
+                if (npc.type == NPCID.IceBat)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrozenShard"));
+                }
+                if (npc.type == NPCID.SnowFlinx)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrozenShard"));
+                }
+                if (npc.type == NPCID.SpikedIceSlime)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrozenShard"));
+                }
+            }
+
+            if (npc.type == NPCID.UndeadViking)
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrozenShard"), Main.rand.Next(1, 4));
             }
         }
     }

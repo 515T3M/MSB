@@ -15,10 +15,12 @@ namespace MSB
         public int summonTagDamage;
         public int summonTagCrit;
         public bool WhipAutoswing;
+        public bool PolarArmorSet;
 
         public override void ResetEffects()
         {
             WhipAutoswing = false;
+            PolarArmorSet = false;
         }
 
         public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
@@ -33,6 +35,22 @@ namespace MSB
             if (player.ZoneRain && liquidType == 0 && Main.rand.Next(15) == 0)
             {
                 caughtType = mod.ItemType("FlyingFish");
+            }
+        }
+
+        public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit) //if NPC is hit, then
+        {
+            if (PolarArmorSet && Main.rand.Next(10) == 0 && target.CanBeChasedBy(this))
+            {
+                target.AddBuff(BuffID.Frostburn, 50); //inflict frostburn
+            }
+        }
+
+        public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit) //if NPC is hit with projectile, then
+        {
+            if (PolarArmorSet && Main.rand.Next(10) == 0 && target.CanBeChasedBy(this))
+            {
+                target.AddBuff(BuffID.Frostburn, 50); //inflict frostburn
             }
         }
 
