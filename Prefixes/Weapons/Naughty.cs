@@ -13,10 +13,7 @@ namespace MSB.Prefixes.Weapons
 
         public Naughty() { }
 
-        public override bool CanRoll(Item item)
-        {
-            if 
-        }
+        public override bool CanRoll(Item item) => true;
 
         public override bool Autoload(ref string name)
         {
