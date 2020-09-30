@@ -9,6 +9,7 @@ Currently the mod adds:
 
 9 whips
 1 minion
+1 armor set
 
 Huge Thanks to:
 	goiabae
