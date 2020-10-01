@@ -45,7 +45,7 @@ namespace MSB.Items.Weapons
 
         }
 
-        public bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
             player.AddBuff(mod.BuffType("FlyingFishBuff"), 2, true);
             position = Main.MouseWorld;

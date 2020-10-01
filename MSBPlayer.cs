@@ -15,7 +15,11 @@ namespace MSB
         public int summonTagDamage;
         public int summonTagCrit;
         public bool WhipAutoswing;
+
+
         public bool PolarArmorSet;
+
+
         public bool ShadowCharm;
 
         public override void ResetEffects()
