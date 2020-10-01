@@ -19,8 +19,9 @@ namespace MSB.Items.Weapons
         }
         public override void SetDefaults()
         {
-            item.damage = 10;
+            item.damage = 11;
             item.knockBack = 4f;
+            item.crit = 5;
             item.useStyle = ItemUseStyleID.SwingThrow;
             item.useAnimation = 50;
             item.useTime = 50;

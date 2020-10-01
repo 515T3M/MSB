@@ -68,7 +68,8 @@ namespace MSB.Projectiles.Whips
         { }
         public override void AI()
         {
-            if(projectile.ai[0] == 0) { projectile.velocity *= rangeMult; projectile.ai[0] = 1; }
+            projectile.spriteDirection = projectile.direction;
+            if (projectile.ai[0] == 0) { projectile.velocity *= rangeMult; projectile.ai[0] = 1; }
             player = Main.player[projectile.owner];
             projectile.rotation = projectile.velocity.ToRotation() + (float)Math.PI / 2f;
             projectile.ai[0] += 1f / player.meleeSpeed;

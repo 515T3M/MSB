@@ -52,7 +52,7 @@ namespace MSB.Projectiles.Minions
             }
             if (player.HasBuff(BuffType<FlyingFishBuff>()))
             {
-                projectile.timeLeft = 18000;
+                projectile.timeLeft = 2;
             }
 
 			//General behavior
@@ -136,7 +136,7 @@ namespace MSB.Projectiles.Minions
 
 			// Default movement parameters for attacking
 			float speed = 8f;
-			float inertia = 20f;
+			float inertia = 30f;
 
 			if (foundTarget) //if target is found, then
 			{
@@ -186,6 +186,7 @@ namespace MSB.Projectiles.Minions
 
 			// So it will lean slightly towards the direction it's moving
 			projectile.rotation = projectile.velocity.X * 0.05f;
+			projectile.spriteDirection = - projectile.direction;
 
 			// Loop trough all the frames from animation
 			int frameSpeed = 5;
@@ -200,7 +201,7 @@ namespace MSB.Projectiles.Minions
 				}
 			}
 
-			Lighting.AddLight(projectile.Center, Color.White.ToVector3() * 0.78f);
+			Lighting.AddLight(projectile.Center, Color.White.ToVector3() * 0.18f);
 
 		}
 	}

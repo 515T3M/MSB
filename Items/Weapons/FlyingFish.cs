@@ -6,6 +6,7 @@ using System.ComponentModel;
 using Microsoft.Xna.Framework;
 using static Terraria.ModLoader.ModContent;
 using MSB.Projectiles;
+using MSB.Buffs;
 
 namespace MSB.Items.Weapons
 {
@@ -26,17 +27,17 @@ namespace MSB.Items.Weapons
             item.width = 50;
             item.height = 52;
 
-            item.damage = 12;
+            item.damage = 7;
             item.summon = true;
             item.mana = 5;
             item.noMelee = true;
             item.knockBack = 3;
 
-            item.shoot = ProjectileType<Projectiles.Minions.FlyingFishProjectile>();
-            item.buffType = BuffType<Buffs.FlyingFishBuff>();
+            item.shoot = mod.ProjectileType("FlyingFishProjectile");
+            item.buffType = mod.BuffType("FlyingFishBuff");
 
             item.useTime = 30;
-            item.useAnimation = 36;
+            item.useAnimation = 30;
             item.UseSound = SoundID.Item44;
             item.useStyle = ItemUseStyleID.SwingThrow;
 
@@ -46,7 +47,7 @@ namespace MSB.Items.Weapons
 
         public bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            player.AddBuff(item.buffType, 2);
+            player.AddBuff(mod.BuffType("FlyingFishBuff"), 2, true);
             position = Main.MouseWorld;
             return true;
         }

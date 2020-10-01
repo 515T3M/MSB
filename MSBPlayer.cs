@@ -16,11 +16,13 @@ namespace MSB
         public int summonTagCrit;
         public bool WhipAutoswing;
         public bool PolarArmorSet;
+        public bool ShadowCharm;
 
         public override void ResetEffects()
         {
             WhipAutoswing = false;
             PolarArmorSet = false;
+            ShadowCharm = false;
         }
 
         public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
@@ -51,6 +53,11 @@ namespace MSB
             if (PolarArmorSet && Main.rand.Next(10) == 0 && target.CanBeChasedBy(this))
             {
                 target.AddBuff(BuffID.Frostburn, 50); //inflict frostburn
+            }
+
+            if (ShadowCharm && Main.rand.Next(6) == 0 && target.CanBeChasedBy(this))
+            {
+                target.AddBuff(BuffID.ShadowFlame, 100); //inflicts shadowflame
             }
         }
 

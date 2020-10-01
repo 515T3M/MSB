@@ -22,7 +22,7 @@ namespace MSB.Buffs
 
         public override void Update(Player player, ref int buffIndex)
         {
-            if (player.ownedProjectileCounts[ProjectileType<Projectiles.Minions.FlyingFishProjectile>()] > 0)
+            if (player.ownedProjectileCounts[mod.ProjectileType("FlyingFishProjectile")] > 0)
             {
                 player.buffTime[buffIndex] = 18000;
             }

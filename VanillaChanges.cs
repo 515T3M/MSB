@@ -61,6 +61,15 @@ namespace MSB
             {
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FrozenLeather"), Main.rand.Next(1, 4));
             }
+
+            if (Main.rand.Next(7) == 0)
+            {
+                if (npc.type == NPCID.GoblinSummoner)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ShadowCharm"));
+                }
+
+            }
         }
     }
 }

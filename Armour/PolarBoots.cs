@@ -25,7 +25,7 @@ namespace MSB.Armour
 
         public override void UpdateEquip(Player player)
         {
-            player.minionDamage *= 1.02f;
+            player.minionDamageMult += 0.02f;
         }
 
         public override void AddRecipes() 
