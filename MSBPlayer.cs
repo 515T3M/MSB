@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using MSB.Projectiles.Minions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +20,7 @@ namespace MSB
 
 
         public bool PolarArmorSet;
+        public bool PumpkinArmorSet;
 
 
         public bool ShadowCharm;
@@ -26,6 +29,7 @@ namespace MSB
         {
             WhipAutoswing = false;
             PolarArmorSet = false;
+            PumpkinArmorSet = false;
             ShadowCharm = false;
         }
 
@@ -64,6 +68,5 @@ namespace MSB
                 target.AddBuff(BuffID.ShadowFlame, 80); //inflicts shadowflame
             }
         }
-
     }
 }
