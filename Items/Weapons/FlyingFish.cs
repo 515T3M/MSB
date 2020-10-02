@@ -24,8 +24,8 @@ namespace MSB.Items.Weapons
 
         public override void SetDefaults()
         {
-            item.width = 50;
-            item.height = 52;
+            item.width = 25;
+            item.height = 26;
 
             item.damage = 7;
             item.summon = true;
