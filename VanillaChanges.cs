@@ -72,6 +72,12 @@ namespace MSB
                 }
 
             }
+
+            if (npc.type == NPCID.KingSlime)
+            {
+                if (Main.rand.NextFloat() < .18f) //.18f
+                    Item.NewItem(npc.getRect(), ItemID.SlimeStaff);
+            }
         }
     }
 
@@ -119,6 +125,14 @@ namespace MSB
             {
                 player.minionDamageMult += 0.05f;
                 item.defense = 5;
+            }
+        }
+
+        public override void OpenVanillaBag(string context, Player player, int arg)
+        {
+            if (Main.rand.NextFloat() < .25f && arg == ItemID.KingSlimeBossBag)
+            {
+                Item.NewItem(player.getRect(), ItemID.SlimeStaff);
             }
         }
     }
