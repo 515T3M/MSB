@@ -20,8 +20,8 @@ namespace MSB.Items.Weapons
         {
 
             item.useStyle = ItemUseStyleID.SwingThrow;
-            item.useAnimation = 32;
-            item.useTime = 45;
+            item.useAnimation = 40;
+            item.useTime = 30;
             item.width = 17;
             item.height = 14;
             item.value = 1000;

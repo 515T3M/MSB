@@ -24,8 +24,8 @@ namespace MSB.Items.Weapons
             item.crit = 5;
             item.useStyle = ItemUseStyleID.SwingThrow;
             item.useAnimation = 50;
-            item.useTime = 50;
-            item.width = 38;
+            item.useTime = 40;
+            item.width = 30;
             item.height = 40;
             item.UseSound = SoundID.Item1;
             item.noMelee = true;
