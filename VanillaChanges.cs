@@ -84,13 +84,72 @@ namespace MSB
     public class VanillaItemChanges : GlobalItem
 
     {
+
+        public override void AddRecipes()
+        {
+
+            RecipeFinder finder = new RecipeFinder();
+            finder.AddIngredient(ItemID.Pumpkin, 20);
+            finder.AddTile(TileID.WorkBenches);
+            finder.SetResult(ItemID.PumpkinHelmet);
+            Recipe recipe1 = finder.FindExactRecipe();
+            if (recipe1 != null)
+            {
+                RecipeEditor editor = new RecipeEditor(recipe1);
+                editor.DeleteRecipe();
+            }
+
+            finder = new RecipeFinder();
+            finder.AddIngredient(ItemID.Pumpkin, 30);
+            finder.AddTile(TileID.WorkBenches);
+            finder.SetResult(ItemID.PumpkinBreastplate);
+            Recipe recipe2 = finder.FindExactRecipe();
+            if (recipe2 != null)
+            {
+                RecipeEditor editor = new RecipeEditor(recipe2);
+                editor.DeleteRecipe();
+            }
+
+            finder = new RecipeFinder();
+            finder.AddIngredient(ItemID.Pumpkin, 25);
+            finder.AddTile(TileID.WorkBenches);
+            finder.SetResult(ItemID.PumpkinLeggings);
+            Recipe recipe3 = finder.FindExactRecipe();
+            if (recipe3 != null)
+            {
+                RecipeEditor editor = new RecipeEditor(recipe3);
+                editor.DeleteRecipe();
+            }
+
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.Pumpkin, 20);
+            recipe.AddRecipeGroup("EvilBar", 5);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(ItemID.PumpkinHelmet);
+            recipe.AddRecipe();
+
+            recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.Pumpkin, 30);
+            recipe.AddRecipeGroup("EvilBar", 12);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(ItemID.PumpkinBreastplate);
+            recipe.AddRecipe();
+
+            recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.Pumpkin, 25);
+            recipe.AddRecipeGroup("EvilBar", 8);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(ItemID.PumpkinLeggings);
+            recipe.AddRecipe();
+        }
+
         public override string IsArmorSet(Item head, Item body, Item legs)
         {
             if (head.type == ItemID.PumpkinHelmet && body.type == ItemID.PumpkinBreastplate && legs.type == ItemID.PumpkinLeggings)
             {
                 return "PumpkinArmorSet";
             }
-            return "";
+            return "NoPumpkinArmorSet";
         }
 
         public override void UpdateArmorSet(Player player, string set)
@@ -102,8 +161,12 @@ namespace MSB
                 if (player.ownedProjectileCounts[mod.ProjectileType("ScaryLookingPumpkinProjectile")] == 0)
                 {
                     Projectile.NewProjectile(player.position, player.velocity, mod.ProjectileType("ScaryLookingPumpkinProjectile"), 5, 5, Main.myPlayer);
-                    player.AddBuff(mod.BuffType("ScaryLookingPumpkinProjectile"), 2);
+                    player.AddBuff(mod.BuffType("ScaryLookingPumpkinBuff"), 2);
                 }
+            }
+            if (set == "NoPumpkinArmorSet")
+            {
+                player.ClearBuff(mod.BuffType("ScaryLookingPumpkinBuff"));
             }
 
         }
