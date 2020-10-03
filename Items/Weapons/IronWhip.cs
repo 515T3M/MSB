@@ -33,7 +33,6 @@ namespace MSB.Items.Weapons
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("IronWhipProjectile");
             item.shootSpeed = 4f;
-            item.rare = ItemRarityID.Blue;
             item.value = 1000;
 
         }

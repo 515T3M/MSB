@@ -36,7 +36,7 @@ namespace MSB.Items.Weapons
             item.damage = 45;
             item.knockBack = 1.8f;
             item.shootSpeed = 8;
-            item.rare = ItemRarityID.Blue;
+            item.rare = ItemRarityID.LightPurple;
 
         }
         public override void HoldItem(Player player)

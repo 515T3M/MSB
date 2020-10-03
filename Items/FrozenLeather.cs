@@ -17,7 +17,6 @@ namespace MSB.Items
             item.height = 24;
             item.maxStack = 999;
             item.value = 100;
-            item.rare = 1;
         }
     }
 }

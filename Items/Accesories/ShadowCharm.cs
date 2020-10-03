@@ -1,9 +1,11 @@
-﻿using System;
+﻿using IL.Terraria.GameContent.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace MSB.Items.Accesories
@@ -20,6 +22,7 @@ namespace MSB.Items.Accesories
             item.height = 34;
             item.width = 30;
             item.accessory = true;
+            item.rare = ItemRarityID.Green;
             
         }
 

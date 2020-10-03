@@ -42,6 +42,7 @@ namespace MSB.Items.Weapons
             item.useStyle = ItemUseStyleID.SwingThrow;
 
             item.value = Item.buyPrice(0, 0, 30, 0);
+            item.rare = ItemRarityID.Blue;
 
         }
 
