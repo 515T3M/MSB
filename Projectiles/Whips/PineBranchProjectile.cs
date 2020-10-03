@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace MSB.Projectiles.Whips
 {
-    class CrystalineTongueProjectile : WhipClass
-
+    public class PineBranchProjectile : WhipClass
     {
         public override void SetDefaults()
         {
-            summonTagDamage = 7;
-            summonTagCrit = 15;
+            summonTagDamage = 10;
+            summonTagCrit = 20;
             rangeMult = 1.45f;
         }
     }

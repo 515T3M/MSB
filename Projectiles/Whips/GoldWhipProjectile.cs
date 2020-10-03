@@ -12,7 +12,7 @@ namespace MSB.Projectiles.Whips
         {
             summonTagDamage = 5;
             summonTagCrit = 10;
-            rangeMult = 0.8f;
+            rangeMult = 0.95f;
         }
     }
 }

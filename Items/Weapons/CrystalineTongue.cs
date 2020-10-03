@@ -35,7 +35,7 @@ namespace MSB.Items.Weapons
             item.autoReuse = true;
             item.damage = 45;
             item.knockBack = 1.8f;
-            item.shootSpeed = 8;
+            item.shootSpeed = 4f;
             item.rare = ItemRarityID.LightPurple;
 
         }

@@ -11,7 +11,8 @@ namespace MSB.Projectiles.Whips
         public override void SetStaticDefaults()
         {
             summonTagDamage = 7;
-            rangeMult = 1f;
+            summonTagCrit = 15;
+            rangeMult = 1.45f;
         }
     }
 }

@@ -23,8 +23,8 @@ namespace MSB.Items.Weapons
             item.knockBack = 4f;
             item.crit = 5;
             item.useStyle = ItemUseStyleID.SwingThrow;
-            item.useAnimation = 50;
-            item.useTime = 40;
+            item.useAnimation = 40;
+            item.useTime = 30;
             item.width = 30;
             item.height = 40;
             item.UseSound = SoundID.Item1;

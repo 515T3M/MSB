@@ -78,6 +78,14 @@ namespace MSB
                 if (Main.rand.NextFloat() < .18f) //.18f
                     Item.NewItem(npc.getRect(), ItemID.SlimeStaff);
             }
+
+            if (Main.rand.Next(5) == 0)
+            {
+                if (npc.type == NPCID.Everscream)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PineBranch"));
+                }
+            }
         }
     }
 
