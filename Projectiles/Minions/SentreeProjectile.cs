@@ -15,7 +15,7 @@ namespace MSB.Projectiles.Minions
         public override void SetStaticDefaults()
         {
             Main.projFrames[projectile.type] = 3;
-            Main.projPet[projectile.type] = true;
+            Terraria.Main.projPet[projectile.type] = true;
             ProjectileID.Sets.Homing[projectile.type] = true;
             ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
             ProjectileID.Sets.TurretFeature[projectile.type] = true;
@@ -26,14 +26,13 @@ namespace MSB.Projectiles.Minions
         {
             projectile.width = 48;
             projectile.height = 64;
-            projectile.aiStyle = 134;
+            projectile.aiStyle = 130;
             projectile.timeLeft = 72000;
             projectile.light = 0.25f;
             projectile.ignoreWater = true;
             projectile.sentry = true;
             projectile.friendly = true;
             projectile.tileCollide = true;
-            projectile.minionSlots = 1f;
             projectile.penetrate = -1;
         }
 
@@ -56,12 +55,12 @@ namespace MSB.Projectiles.Minions
                 //If the distance between the projectile and the live target is active
                 if (distance < 520f && !target.friendly && target.active)
                 {
-                    if (projectile.ai[0] > 120f)//this make so the projectile1 shoot a projectile every X (60 = 1s)
+                    if (projectile.ai[0] > 90f)//this make so the projectile1 shoot a projectile every X (60 = 1s)
                     {
                         //Dividing the factor of 2f which is the desired velocity by distance
-                        distance = 1.6f / distance;
-                        shootToX *= distance * 3;
-                        shootToY *= distance * 3;
+                        distance = 2f / distance;
+                        shootToX *= distance * 5;
+                        shootToY *= distance * 5;
                         int damage = 70;                   
                                           //Shoot projectile and set ai back to 0
                         Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, shootToX, shootToY, mod.ProjectileType("ChristmasStarProjectile"), damage, 5, Main.myPlayer, 0f, 0f);
@@ -77,7 +76,7 @@ namespace MSB.Projectiles.Minions
 
 
             //Animation
-            int frameSpeed = 5;
+            int frameSpeed = 15;
             projectile.frameCounter++;
             if (projectile.frameCounter >= frameSpeed)
             {
@@ -88,6 +87,8 @@ namespace MSB.Projectiles.Minions
                     projectile.frame = 0;
                 }
             }
+
+            Lighting.AddLight(projectile.Center, Color.White.ToVector3() * 0.3f);
         }
     }
 
@@ -100,6 +101,7 @@ namespace MSB.Projectiles.Minions
         }
         public override void SetDefaults()
         {
+            projectile.damage = 20;
             projectile.width = 9;
             projectile.height = 10;
             projectile.aiStyle = 5;
@@ -107,6 +109,8 @@ namespace MSB.Projectiles.Minions
             projectile.light = 0.75f;
             projectile.ignoreWater = true;
             projectile.tileCollide = true;
+            projectile.friendly = true;
+            projectile.hostile = false;
         }
 
         public override bool? CanCutTiles()
