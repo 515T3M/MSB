@@ -11,7 +11,7 @@ namespace MSB.Armour
     public override void SetStaticDefaults()
     {
       DisplayName.SetDefault("Polar Boots");
-      //Tooltip.SetDefault("");
+            Tooltip.SetDefault("+5% movement speed");
     }
 
     public override void SetDefaults()
@@ -25,7 +25,7 @@ namespace MSB.Armour
 
         public override void UpdateEquip(Player player)
         {
-            player.minionDamageMult += 0.02f;
+            player.moveSpeed += 0.05f;
         }
 
         public override void AddRecipes() 

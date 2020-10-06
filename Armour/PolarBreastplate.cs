@@ -11,7 +11,7 @@ namespace MSB.Armour
     public override void SetStaticDefaults()
     {
       DisplayName.SetDefault("Polar Breastplate");
-      //Tooltip.SetDefault("");
+            Tooltip.SetDefault("+2 minion damage");
     }
 
     public override void SetDefaults()
@@ -25,7 +25,7 @@ namespace MSB.Armour
 
     public override void UpdateEquip(Player player)
     {
-            player.minionDamageMult += 0.03f;
+            player.minionDamage += 2;
     }
 
         public override void AddRecipes() 

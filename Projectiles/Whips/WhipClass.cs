@@ -56,6 +56,11 @@ namespace MSB.Projectiles.Whips
             //projectile.MaxUpdates *= rangeMult;
 
         }
+
+        public override bool? CanCutTiles()
+        {
+            return true;
+        }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             player.MinionAttackTargetNPC = target.whoAmI;

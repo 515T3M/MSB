@@ -11,7 +11,7 @@ namespace MSB.Armour
     public override void SetStaticDefaults()
     {
       DisplayName.SetDefault("Polar Hood");
-      //Tooltip.SetDefault("");
+            Tooltip.SetDefault("+1 minion damage");
     }
 
     public override void SetDefaults()
@@ -25,7 +25,7 @@ namespace MSB.Armour
 
         public override void UpdateEquip(Player player)
         {
-            player.minionDamageMult += 0.01f;
+            player.minionDamage += 1;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs) //Check if the player is wearing the full armour set
