@@ -58,14 +58,19 @@ namespace MSB
 
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit) //if NPC is hit with projectile, then
         {
-            if (PolarArmorSet && Main.rand.Next(5) == 0 && target.CanBeChasedBy(this))
+            if (PolarArmorSet && Main.rand.Next(5) == 0 && target.CanBeChasedBy(this) && proj.minion)
             {
                 target.AddBuff(BuffID.Frostburn, 80); //inflict frostburn
             }
 
-            if (ShadowCharm && Main.rand.Next(3) == 0 && target.CanBeChasedBy(this))
+            if (ShadowCharm && Main.rand.Next(3) == 0 && target.CanBeChasedBy(this) && proj.minion)
             {
                 target.AddBuff(BuffID.ShadowFlame, 80); //inflicts shadowflame
+            }
+
+            if (proj.type == mod.ProjectileType("ScaryLookingPumpkinProjectile"))
+            {
+                target.AddBuff(BuffID.Slow, 80);
             }
         }
     }
