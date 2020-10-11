@@ -15,10 +15,14 @@ namespace MSB
     public class MSBPlayer : ModPlayer
     {
         public int MinionSpeedMult;
+        public int summonCrit;
         public int summonTagDamage;
         public int summonTagCrit;
         public bool WhipAutoswing;
 
+        public int MaxCharisma;
+        public int Charisma;
+        public bool EnableCharisma;
 
         public bool PolarArmorSet;
         public bool PumpkinArmorSet;
@@ -26,18 +30,36 @@ namespace MSB
 
         public bool ShadowCharm;
 
+
         public override void ResetEffects()
         {
             WhipAutoswing = false;
             PolarArmorSet = false;
             PumpkinArmorSet = false;
             ShadowCharm = false;
+            EnableCharisma = false;
+
+            summonCrit = 0;
         }
 
         public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
 
-            if ((proj.minion || ProjectileID.Sets.MinionShot[proj.type]) && target.whoAmI == player.MinionAttackTargetNPC) { damage += summonTagDamage; if (summonTagCrit > 0) { if (Main.rand.Next(1, 101) < summonTagCrit) { crit = true; } } }
+            if (proj.minion || ProjectileID.Sets.MinionShot[proj.type])
+            {
+                if (target.whoAmI == player.MinionAttackTargetNPC)
+                {
+                    summonCrit += summonTagCrit
+                    damage += summonTagDamage;
+                }
+                if (summonCrit > 0)
+                {
+                    if (Main.rand.Next(1, 101) < summonCrit)
+                        {
+                            crit = true;
+                        }
+                }
+            }
 
         }
 
