@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using MSB.Projectiles.Minions;
 using System;
 using System.Collections.Generic;
@@ -73,5 +73,14 @@ namespace MSB
                 target.AddBuff(BuffID.Slow, 80);
             }
         }
+
+        public virtual void ModifyWeaponDamage (Player player, ref float add, ref float mult, ref float flat)
+        {
+            if (PolarArmorSet && item.summon)
+            {
+                flat += 3;
+            }
+        }
+
     }
 }
