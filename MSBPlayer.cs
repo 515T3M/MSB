@@ -14,6 +14,7 @@ namespace MSB
 {
     public class MSBPlayer : ModPlayer
     {
+        public int MinionSpeedMult;
         public int summonTagDamage;
         public int summonTagCrit;
         public bool WhipAutoswing;
