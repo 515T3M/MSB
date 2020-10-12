@@ -41,6 +41,11 @@ namespace MSB
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FlyingFish"));
                 }
+
+                if (npc.type == NPCID.Destroyer)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DestroyerWhip"));
+                }
             }
 
             if (Main.rand.Next(50) == 0) //Pre-hm underground ice enemies have a chance of dropping Frozen Shards
