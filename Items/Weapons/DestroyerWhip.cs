@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework;
 
 namespace MSB.Items.Weapons
 {
-    public class CrystalineTongue : ModItem
+    public class DestroyerWhip : ModItem
     {
         public override void SetStaticDefaults()
         {

@@ -10,7 +10,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace MSB.Buffs
 {
-    public class FlyingFishBuff : ModBuff
+    public class StegBuff : ModBuff
     {
         public override void SetDefaults()
         {

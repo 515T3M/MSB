@@ -46,9 +46,9 @@ namespace MSB.Items.Weapons
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.StardustFragment, 12);
-            recipe.AddIngredient(ItemID.LuminiteBar, 5);
-            recipe.AddTile(TileID.AncientManipulator);
+            recipe.AddIngredient(ItemID.FragmentStardust, 12);
+            recipe.AddIngredient(ItemID.LunarBar, 5);
+            recipe.AddTile(TileID.LunarCraftingStation);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

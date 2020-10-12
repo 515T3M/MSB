@@ -49,7 +49,7 @@ namespace MSB
             {
                 if (target.whoAmI == player.MinionAttackTargetNPC)
                 {
-                    summonCrit += summonTagCrit
+                    summonCrit += summonTagCrit;
                     damage += summonTagDamage;
                 }
                 if (summonCrit > 0)
@@ -99,7 +99,7 @@ namespace MSB
 
         public virtual void ModifyWeaponDamage (Player player, ref float add, ref float mult, ref float flat)
         {
-            if (PolarArmorSet && item.summon)
+            if (PolarArmorSet)
             {
                 flat += 3;
             }

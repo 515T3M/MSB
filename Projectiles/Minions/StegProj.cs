@@ -73,7 +73,7 @@ namespace MSB.Projectiles.Minions
             projectile.velocity.Y = projectile.velocity.Y + 0.1f;
             if (projectile.velocity.Y > 16f)
             {
-                projectile.velocity.Y = 16f // limits gravity affected acceleration to a max cap
+                projectile.velocity.Y = 16f; // limits gravity affected acceleration to a max cap
             }
 
             //"minion chain" reorganizing
@@ -137,13 +137,14 @@ namespace MSB.Projectiles.Minions
             //Movement and Attacking
 
             //Moving and Attacking Paramenters
-            float speed = (6 * player.GetModPlayer<MSBPlayer>().MinionSpeedMult)f;
-            float inertia = (35 / player.GetModPlayer<MSBPlayer>().MinionSpeedMult)f;
-            float damage = projectile.damage;
+            float speed = (6 * player.GetModPlayer<MSBPlayer>().MinionSpeedMult);
+            float inertia = (35 / player.GetModPlayer<MSBPlayer>().MinionSpeedMult);
+            int damage = projectile.damage;
+            float distanceFromTargetX = projectile.Center.X - targetCenter.X;
 
             if (foundTarget)
             {
-                if (distanceFromTarget.X > 20f)
+                if (distanceFromTargetX > 20f)
                 {
                     Vector2 direction = targetCenter - projectile.Center;
 					direction.Normalize();
@@ -152,12 +153,12 @@ namespace MSB.Projectiles.Minions
                 }
                 else
                 {
-                    speed = 0f
+                    speed = 0f;
                     inertia = 0f;
                     
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, target.position.X, target.position.Y, mod.ProjectileType("StegScaleProj"), damage, 5, Main.myPlayer, 15f, 15f);
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (target.position.X + 20), target.position.Y, mod.ProjectileType("StegScaleProj"), damage, 5, Main.myPlayer, 15f, 0f);
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (target.position.X - 20), target.position.Y, mod.ProjectileType("StegScaleProj"), damage, 5, Main.myPlayer, 0f, 0f);
+                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, targetCenter.X, targetCenter.Y, mod.ProjectileType("StegScaleProj"), damage, 5, Main.myPlayer, 15f, 15f);
+                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (targetCenter.X + 20), targetCenter.Y, mod.ProjectileType("StegScaleProj"), damage, 5, Main.myPlayer, 15f, 0f);
+                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (targetCenter.X - 20), targetCenter.Y, mod.ProjectileType("StegScaleProj"), damage, 5, Main.myPlayer, 0f, 0f);
                 }
             }
 
@@ -181,6 +182,10 @@ namespace MSB.Projectiles.Minions
 
 			int frameSpeed = 0;
 			projectile.frameCounter++;
+            if (speed > 0)
+            {
+                frameSpeed = 12; //if minion is moving, then run animation
+            }
 			if (projectile.frameCounter >= frameSpeed)
 			{
 				projectile.frameCounter = 0;
@@ -190,10 +195,6 @@ namespace MSB.Projectiles.Minions
 					projectile.frame = 0;
 				}
 			}
-            if (projectile.velocity > 0)
-            {
-                frameSpeed = 12; //if minion is moving, then run animation
-            }
         }
     }
 

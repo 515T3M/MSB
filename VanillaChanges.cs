@@ -42,7 +42,7 @@ namespace MSB
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FlyingFish"));
                 }
 
-                if (npc.type == NPCID.Destroyer)
+                if (npc.type == NPCID.TheDestroyer)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("DestroyerWhip"));
                 }
@@ -212,7 +212,7 @@ namespace MSB
             }
         }
 
-        public virtual void HoldItem(Item item, Player player)
+        public override void HoldItem(Item item, Player player)
         {
             if (!item.melee && !item.magic && !item.ranged)
             {
