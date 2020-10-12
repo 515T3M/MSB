@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -204,6 +204,14 @@ namespace MSB
             if (Main.rand.NextFloat() < .25f && arg == ItemID.KingSlimeBossBag)
             {
                 Item.NewItem(player.getRect(), ItemID.SlimeStaff);
+            }
+        }
+
+        public virtual void HoldItem(Item item, Player player)
+        {
+            if (!item.melee && !item.magic && !item.ranged)
+            {
+                player.GetModPlayer<MSBPlayer>().EnableCharisma = true; //if player holds a summon item, enable charisma
             }
         }
     }
