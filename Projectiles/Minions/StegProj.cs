@@ -42,6 +42,7 @@ namespace MSB.Projectiles.Minions
 
         public override void AI()
         {
+            //Buff thingy
             Terraria.Player player = Terraria.Main.player[projectile.owner];
             if (player.dead || !player.active)
             {
@@ -155,10 +156,13 @@ namespace MSB.Projectiles.Minions
                 {
                     speed = 0f;
                     inertia = 0f;
-                    
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, targetCenter.X, targetCenter.Y, mod.ProjectileType("StegScaleProj"), damage, 5, Main.myPlayer, 15f, 15f);
+                    if (projectile.ai[0] > 90f)
+                    {
+                        Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, targetCenter.X, targetCenter.Y, mod.ProjectileType("StegScaleProj"), damage, 5, Main.myPlayer, 15f, 15f);
                     Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (targetCenter.X + 20), targetCenter.Y, mod.ProjectileType("StegScaleProj"), damage, 5, Main.myPlayer, 15f, 0f);
                     Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (targetCenter.X - 20), targetCenter.Y, mod.ProjectileType("StegScaleProj"), damage, 5, Main.myPlayer, 0f, 0f);
+                    projectile.ai[0] = 0f;
+                    }
                 }
             }
 
@@ -203,7 +207,7 @@ namespace MSB.Projectiles.Minions
 
         public override void SetStaticDefaults()
         {
-            ProjectileID.Sets.SentryShot[projectile.type] = true;
+            ProjectileID.Sets.MinionShot[projectile.type] = true;
         }
         public override void SetDefaults()
         {
