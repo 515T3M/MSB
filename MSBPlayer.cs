@@ -15,7 +15,7 @@ namespace MSB
 {
     public class MSBPlayer : ModPlayer
     {
-        public int MinionSpeedMult;
+        public float MinionSpeedMult;
         public int summonCrit;
         public int summonTagDamage;
         public int summonTagCrit;
@@ -47,7 +47,7 @@ namespace MSB
             summonCrit = 0;
         }
 
-        public void CharismaMechanics(Player player, int Charisma, int MaxCharisma, bool EnableCharisma, float CharismaRegenMult)
+        public void CharismaMechanics(Player player, int Charisma, int MaxCharisma, bool EnableCharisma, float CharismaRegenMult, float MinionSpeedMult)
         {
             if (EnableCharisma)
             {
@@ -66,6 +66,7 @@ namespace MSB
 
             player.maxRunSpeed += Charisma / 10;
             player.accRunSpeed += Charisma / 5;
+            MinionSpeedMult += Charisma / 5;
             //if critical sprout is equipped, allow charisma to affect crit strike chances
             if (CriticalSprout)
             {
