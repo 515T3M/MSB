@@ -41,10 +41,22 @@ namespace MSB
             PolarArmorSet = false;
             PumpkinArmorSet = false;
             ShadowCharm = false;
+
             EnableCharisma = false;
             CriticalSprout = false;
 
             summonCrit = 0;
+            MinionSpeedMult = 1f;
+            CharismaRegenMult = 1f;
+            MaxCharisma = 20;
+        }
+
+        public override void PostItemCheck()
+        {
+            if (Main.LocalPlayer.HeldItem.summon)
+            {
+                EnableCharisma = true;
+            }
         }
 
         public void CharismaMechanics(Player player, int Charisma, int MaxCharisma, bool EnableCharisma, float CharismaRegenMult, float MinionSpeedMult)
@@ -53,7 +65,7 @@ namespace MSB
             {
                 //charisma regeneration
                 CharismaRegenTimer++;
-                if (CharismaRegenTimer >= 45 * CharismaRegenMult)
+                if (CharismaRegenTimer >= 45 * (1 / CharismaRegenMult))
                 {
                     //so that charisma doesnt exceed the maximum
                     if (Charisma < MaxCharisma)
@@ -65,15 +77,14 @@ namespace MSB
             }
 
             player.maxRunSpeed += Charisma / 10;
-            player.accRunSpeed += Charisma / 5;
-            MinionSpeedMult += Charisma / 5;
+            player.accRunSpeed += Charisma / 10;
+            MinionSpeedMult += Charisma / 100;
             //if critical sprout is equipped, allow charisma to affect crit strike chances
             if (CriticalSprout)
             {
                 summonCrit += Charisma / 4;
             }
         }
-
         public override void Kill(double damage, int hitDirection, bool pvp, PlayerDeathReason damageSource)
         {
             Charisma = 0;
