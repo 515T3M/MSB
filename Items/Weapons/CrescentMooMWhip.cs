@@ -11,12 +11,12 @@ using Microsoft.Xna.Framework;
 
 namespace MSB.Items.Weapons
 {
-    public class DestroyerWhip : ModItem
+    public class CrescentMooMWhip : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Annihilator");
-            Tooltip.SetDefault("\n7 summon tag damage" + "\nYour summons will focus struck enemies");
+            DisplayName.SetDefault("Crescent Moon");
+            Tooltip.SetDefault("\n13 summon tag damage" + "\nYour summons will focus struck enemies" + "\n'The mighty Moan... i mean, Moon'");
         }
         public override void SetDefaults()
         {
@@ -27,21 +27,31 @@ namespace MSB.Items.Weapons
             item.width = 17;
             item.height = 14;
             item.value = 1000;
-            item.shoot = mod.ProjectileType("DestroyerProj");
+            item.shoot = mod.ProjectileType("CrescentMooMProj");
             item.UseSound = SoundID.Item1;
             item.noMelee = true;
             item.summon = true;
             item.noUseGraphic = true;
             item.autoReuse = true;
-            item.damage = 44;
-            item.knockBack = 2f;
+            item.damage = 190;
+            item.knockBack = 2.5f;
             item.shootSpeed = 4f;
-            item.rare = ItemRarityID.LightPurple;
+            item.rare = ItemRarityID.Red;
 
         }
         public override void HoldItem(Player player)
         {
             item.autoReuse = player.GetModPlayer<MSBPlayer>().WhipAutoswing;
+        }
+
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.StoneBlock, 12);
+            recipe.AddIngredient(ItemID.LunarBar, 5);
+            recipe.AddTile(TileID.LunarCraftingStation);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

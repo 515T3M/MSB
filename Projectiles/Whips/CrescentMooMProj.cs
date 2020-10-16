@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace MSB.Projectiles.Whips
 {
-    class DestroyerProj : WhipClass
+    public class CrescentMooMProj : WhipClass
 
     {
         public override void SetDefaults()
         {
-            summonTagDamage = 4;
-            summonTagCrit = 30;
-            rangeMult = 1.6f;
+            summonTagDamage = 13;
+            summonTagCrit = 20;
+            rangeMult = 1.8f;
         }
     }
 }
