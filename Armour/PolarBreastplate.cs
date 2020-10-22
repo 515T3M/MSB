@@ -11,7 +11,7 @@ namespace MSB.Armour
     public override void SetStaticDefaults()
     {
       DisplayName.SetDefault("Polar Breastplate");
-            Tooltip.SetDefault("+2 minion damage");
+            Tooltip.SetDefault("+5% summon critical strike chance");
     }
 
     public override void SetDefaults()
@@ -25,19 +25,19 @@ namespace MSB.Armour
 
     public override void UpdateEquip(Player player)
     {
-            player.minionDamage += 2;
+      player.GetModPlayer<MSBPlayer>().summonCrit += 5;
     }
 
-        public override void AddRecipes() 
-	{
-	ModRecipe recipe = new ModRecipe(mod);
-		recipe.AddIngredient(ItemID.SnowBlock, 20);
-		recipe.AddIngredient(ItemID.IceBlock, 30);
-            recipe.AddRecipeGroup("IronBar", 10);
-		recipe.AddIngredient(mod.ItemType("FrozenLeather"), 3);
-		recipe.AddTile(TileID.IceMachine);
-		recipe.SetResult(this);
-		recipe.AddRecipe();
-	}
+    public override void AddRecipes() 
+	  {
+	    ModRecipe recipe = new ModRecipe(mod);
+		  recipe.AddIngredient(ItemID.SnowBlock, 20);
+		  recipe.AddIngredient(ItemID.IceBlock, 30);
+      recipe.AddRecipeGroup("IronBar", 10);
+		  recipe.AddIngredient(mod.ItemType("FrozenLeather"), 3);
+		  recipe.AddTile(TileID.IceMachine);
+		  recipe.SetResult(this);
+		  recipe.AddRecipe();
+	  }
   }
 }

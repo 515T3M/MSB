@@ -16,6 +16,7 @@ namespace MSB
     public class MSBPlayer : ModPlayer
     {
         public float MinionSpeedMult;
+        public float MinionRangeMult;
         public int summonCrit;
         public int summonTagDamage;
         public int summonTagCrit;
@@ -145,9 +146,9 @@ namespace MSB
             }
         }
 
-        public virtual void ModifyWeaponDamage (Player player, ref float add, ref float mult, ref float flat)
+        public override void ModifyWeaponDamage (Item item, ref float add, ref float mult, ref float flat)
         {
-            if (PolarArmorSet)
+            if (PolarArmorSet && item.summon)
             {
                 flat += 3;
             }

@@ -11,7 +11,7 @@ namespace MSB.Armour
     public override void SetStaticDefaults()
     {
       DisplayName.SetDefault("Polar Hood");
-            Tooltip.SetDefault("+1 minion damage");
+            Tooltip.SetDefault("+5% minion movement speed");
     }
 
     public override void SetDefaults()
@@ -23,25 +23,25 @@ namespace MSB.Armour
       item.defense = 2;
     }
 
-        public override void UpdateEquip(Player player)
-        {
-            player.minionDamage += 1;
-        }
+    public override void UpdateEquip(Player player)
+      {
+        player.GetModPlayer<MSBPlayer>().MinionSpeedMult += 0.05f;
+      }
 
-        public override bool IsArmorSet(Item head, Item body, Item legs) //Check if the player is wearing the full armour set
-    {
-      if (body.type == ModContent.ItemType<PolarBreastplate>())
+    public override bool IsArmorSet(Item head, Item body, Item legs) //Check if the player is wearing the full armour set
+      {
+        if (body.type == ModContent.ItemType<PolarBreastplate>())
         return legs.type == ModContent.ItemType<PolarBoots>();
-      return false;
-    }
+        return false;
+      }
 	
-	public override void UpdateArmorSet(Player player) //Do this is full armour set
-    {
-      player.setBonus = "Gives an extra minion slot";
-      Player player1 = player;
-	  player1.maxMinions += 1; //Extra minion slot
-            player.GetModPlayer<MSBPlayer>().PolarArmorSet = true;
-        }
+	  public override void UpdateArmorSet(Player player) //Do this is full armour set
+      {
+        player.setBonus = "Gives an extra minion slot and increases summon damage by 3";
+        Player player1 = player;
+        player1.maxMinions += 1; //Extra minion slot
+        player.GetModPlayer<MSBPlayer>().PolarArmorSet = true;
+      }
 
     
 	/*public override void UpdateEquip(Player player)
