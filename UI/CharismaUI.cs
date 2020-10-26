@@ -66,8 +66,6 @@ namespace MSB.UI
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            if (Main.LocalPlayer.HeldItem.summon)
-            return;
             base.Draw(spriteBatch);
         }
 
@@ -99,8 +97,6 @@ namespace MSB.UI
         public override void Update(GameTime gameTime)
         {
             var modPlayer = Main.LocalPlayer.GetModPlayer<MSBPlayer>();
-            if (!Main.LocalPlayer.HeldItem.summon)
-            return;
             //text update per tick
             text.SetText($"{modPlayer.Charisma}/{modPlayer.MaxCharisma}");
 			base.Update(gameTime);

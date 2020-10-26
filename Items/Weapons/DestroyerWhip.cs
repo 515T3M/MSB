@@ -16,7 +16,7 @@ namespace MSB.Items.Weapons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Annihilator");
-            Tooltip.SetDefault("\n7 summon tag damage" + "\nYour summons will focus struck enemies");
+            Tooltip.SetDefault("\n7 summon tag damage" + "\nYour summons will focus struck enemies" + "\n'You notice a laser stamping on the bottom. It says 'Made in China''");
         }
         public override void SetDefaults()
         {
@@ -33,7 +33,7 @@ namespace MSB.Items.Weapons
             item.summon = true;
             item.noUseGraphic = true;
             item.autoReuse = true;
-            item.damage = 44;
+            item.damage = 42;
             item.knockBack = 2f;
             item.shootSpeed = 4f;
             item.rare = ItemRarityID.LightPurple;

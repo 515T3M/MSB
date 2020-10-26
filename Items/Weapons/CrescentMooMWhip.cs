@@ -39,11 +39,6 @@ namespace MSB.Items.Weapons
             item.rare = ItemRarityID.Red;
 
         }
-        public override void HoldItem(Player player)
-        {
-            item.autoReuse = player.GetModPlayer<MSBPlayer>().WhipAutoswing;
-        }
-
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);

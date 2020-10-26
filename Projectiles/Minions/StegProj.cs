@@ -17,7 +17,7 @@ namespace MSB.Projectiles.Minions
         public override void SetStaticDefaults()
         {
 			DisplayName.SetDefault("Desert Steg");
-			Terraria.Main.projFrames[projectile.type] = 8;
+			Terraria.Main.projFrames[projectile.type] = 6;
             Terraria.Main.projPet[projectile.type] = true;
 			ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
 			ProjectileID.Sets.Homing[projectile.type] = true;
@@ -26,9 +26,9 @@ namespace MSB.Projectiles.Minions
 
         public override void SetDefaults()
         {
-			projectile.width = 100;
-			projectile.height = 70;
-            projectile.friendly = false;
+			projectile.width = 140;
+			projectile.height = 74;
+            projectile.friendly = true;
             projectile.minion = true;
             projectile.minionSlots = 1f;
             projectile.penetrate = -1;
@@ -77,21 +77,6 @@ namespace MSB.Projectiles.Minions
                 projectile.velocity.Y = 16f; // limits gravity affected acceleration to a max cap
             }
 
-            //"minion chain" reorganizing
-			float overlapVelocity = 0.04f;
-			for (int i = 0; i < Main.maxProjectiles; i++)
-			{
-				Projectile other = Main.projectile[i];
-				if (i != projectile.whoAmI && other.active && other.owner == projectile.owner && Math.Abs(projectile.position.X - other.position.X) + Math.Abs(projectile.position.Y - other.position.Y) < projectile.width)
-				{
-					if (projectile.position.X < other.position.X) projectile.velocity.X -= overlapVelocity;
-					else projectile.velocity.X += overlapVelocity;
-
-					if (projectile.position.Y < other.position.Y) projectile.velocity.Y -= overlapVelocity;
-					else projectile.velocity.Y += overlapVelocity;
-				}
-			}
-
             //Find target
 			// Starting search distance
 			float distanceFromTarget = 400f;
@@ -103,7 +88,7 @@ namespace MSB.Projectiles.Minions
 			{
 				NPC npc = Main.npc[player.MinionAttackTargetNPC];
 				float between = Vector2.Distance(npc.Center, projectile.Center);
-				if (between < 1000f) // Targetting distance
+				if (between < 400f) // Targetting distance
 				{
 					distanceFromTarget = between;
 					targetCenter = npc.Center;
@@ -139,13 +124,13 @@ namespace MSB.Projectiles.Minions
 
             //Moving and Attacking Paramenters
             float speed = (6 * player.GetModPlayer<MSBPlayer>().MinionSpeedMult);
-            float inertia = (35 / player.GetModPlayer<MSBPlayer>().MinionSpeedMult);
+            float inertia = (55 / player.GetModPlayer<MSBPlayer>().MinionSpeedMult);
             int damage = projectile.damage;
-            float distanceFromTargetX = projectile.Center.X - targetCenter.X;
+            float distanceFromTargetX = targetCenter.X - player.Center.X;
 
             if (foundTarget)
             {
-                if (distanceFromTargetX > 20f)
+                if (distanceFromTargetX > 80f)
                 {
                     Vector2 direction = targetCenter - projectile.Center;
 					direction.Normalize();
@@ -156,28 +141,15 @@ namespace MSB.Projectiles.Minions
                 {
                     speed = 0f;
                     inertia = 0f;
-                    if (projectile.ai[0] > 90f)
+                    projectile.ai[0] += 1;
+                    if (projectile.ai[0] > 60f)
                     {
-                        Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, targetCenter.X, targetCenter.Y, mod.ProjectileType("StegScaleProj"), damage, 5, Main.myPlayer, 15f, 15f);
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (targetCenter.X + 20), targetCenter.Y, mod.ProjectileType("StegScaleProj"), damage, 5, Main.myPlayer, 15f, 0f);
-                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, (targetCenter.X - 20), targetCenter.Y, mod.ProjectileType("StegScaleProj"), damage, 5, Main.myPlayer, 0f, 0f);
-                    projectile.ai[0] = 0f;
+                        Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y + 10, targetCenter.X + 10, targetCenter.Y, mod.ProjectileType("StegScaleProj"), damage, 5, projectile.owner, 0);
+                        Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y + 10, targetCenter.X, targetCenter.Y, mod.ProjectileType("StegScaleProj"), damage, 5, projectile.owner, 0);
+                        Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y + 10, targetCenter.X - 10, targetCenter.Y, mod.ProjectileType("StegScaleProj"), damage, 5, projectile.owner, 0);
+                        projectile.ai[0] = 0f;
                     }
                 }
-            }
-
-            else
-            {
-                // Minion doesn't have a target: return to player and idle
-				if (distanceToIdlePosition > 200f)
-				{
-					// Speed up the minion if it's away from the player
-					speed = 12f;
-					inertia = 60f;
-				}
-
-				speed = 0f;
-                inertia = 0f;
             }
 
             //Animation and visuals
@@ -188,7 +160,7 @@ namespace MSB.Projectiles.Minions
 			projectile.frameCounter++;
             if (speed > 0)
             {
-                frameSpeed = 12; //if minion is moving, then run animation
+                frameSpeed = 30; //if minion is moving, then run animation
             }
 			if (projectile.frameCounter >= frameSpeed)
 			{
@@ -214,7 +186,7 @@ namespace MSB.Projectiles.Minions
             projectile.damage = 20;
             projectile.width = 15;
             projectile.height = 20;
-            projectile.aiStyle = 5;
+            projectile.aiStyle = 1;
             projectile.timeLeft = 7200;
             projectile.ignoreWater = true;
             projectile.tileCollide = true;

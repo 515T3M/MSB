@@ -97,7 +97,8 @@ namespace MSB
     public class VanillaItemChanges : GlobalItem
 
     {
-
+        static int CharismaCost;
+        static bool IsWhip;
         public override void AddRecipes()
         {
 

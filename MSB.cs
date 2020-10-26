@@ -14,19 +14,20 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.UI;
 using Terraria.UI;
+using MSB.UI;
 
 namespace MSB
 {
 	public class MSB : Mod
 	{
         public static bool visible = false;
-        internal UserInterface MSBInterface;
-        public UIState CharismaResource;
+        private UserInterface MSBInterface;
+        internal CharismaResource CharismaResource;
         public override void Load()
         {
             if (!Main.dedServ)
             {
-                CharismaResource = new UIState();
+                CharismaResource = new CharismaResource();
                 CharismaResource.Activate();
 				MSBInterface = new UserInterface();
                 MSBInterface.SetState(CharismaResource);
@@ -41,25 +42,21 @@ namespace MSB
         private GameTime _lastUpdateUiGameTime;
         public override void UpdateUI(GameTime gameTime)
         {
-            _lastUpdateUiGameTime = gameTime;
-            if (MSBInterface?.CurrentState != null)
-            {
-                CharismaResource?.Update(gameTime);
-            }
+           MSBInterface?.Update(gameTime);
         }
 
         public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
         {
-            int mouseTextIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Mouse Text"));
-            if (mouseTextIndex != -1)
+            int resourceBarIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Resource Bars"));
+            if (resourceBarIndex != -1)
             {
-                layers.Insert(mouseTextIndex, new LegacyGameInterfaceLayer(
-                    "MSB: CharismaResource",
+                layers.Insert(resourceBarIndex, new LegacyGameInterfaceLayer(
+                    "MSB: Charisma Resource",
                     delegate
                     {
                         if ( _lastUpdateUiGameTime != null && MSBInterface?.CurrentState != null)
                         {
-                            CharismaResource.Draw(Main.spriteBatch);
+                            MSBInterface.Draw(Main.spriteBatch, new GameTime());
                         }
                         return true;
                     },
