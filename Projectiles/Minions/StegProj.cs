@@ -124,13 +124,13 @@ namespace MSB.Projectiles.Minions
 
             //Moving and Attacking Paramenters
             float speed = (6 * player.GetModPlayer<MSBPlayer>().MinionSpeedMult);
-            float inertia = (55 / player.GetModPlayer<MSBPlayer>().MinionSpeedMult);
+            float inertia = (60 / player.GetModPlayer<MSBPlayer>().MinionSpeedMult);
             int damage = projectile.damage;
             float distanceFromTargetX = targetCenter.X - player.Center.X;
 
             if (foundTarget)
             {
-                if (distanceFromTargetX > 80f)
+                if (distanceFromTargetX > 100f)
                 {
                     Vector2 direction = targetCenter - projectile.Center;
 					direction.Normalize();
@@ -140,7 +140,6 @@ namespace MSB.Projectiles.Minions
                 else
                 {
                     speed = 0f;
-                    inertia = 0f;
                     projectile.ai[0] += 1;
                     if (projectile.ai[0] > 60f)
                     {
