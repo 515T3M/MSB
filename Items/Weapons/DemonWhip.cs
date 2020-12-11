@@ -34,6 +34,7 @@ namespace MSB.Items.Weapons
             item.shoot = mod.ProjectileType("DemonWhipProjectile");
             item.shootSpeed = 4.5f;
             item.value = 1000;
+            item.rare = ItemRarityID.Blue;
 
         }
         public override void HoldItem(Player player)
