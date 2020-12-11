@@ -7,12 +7,14 @@ Consider joining the cause by downloading the mod and joining the mod's discord.
 
 Currently the mod adds:
 
-9 whips
-1 minion
+11 whips
+2 minions
 1 armor set
+1 accessory
 
 Huge Thanks to:
-	goiabae
-	ssobedevad40
-	Zandberg
-	Bruhken
+goiabae
+ssobedevad40
+Zandberg
+Bruhken
+Stardust
