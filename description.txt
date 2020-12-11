@@ -7,7 +7,7 @@ Consider joining the cause by downloading the mod and joining the mod's discord.
 
 Currently the mod adds:
 
-9 whips
+11 whips
 1 minion
 1 armor set
 
@@ -16,3 +16,4 @@ Huge Thanks to:
 	ssobedevad40
 	Zandberg
 	Bruhken
+	StarDust
