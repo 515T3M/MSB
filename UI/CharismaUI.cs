@@ -14,7 +14,7 @@ using MSB.UI;
 
 namespace MSB.UI
 {
-    internal class CharismaResource : UIState
+    public class CharismaResource : UIState
     {
         public static bool visible = false;
         public UIText text;
